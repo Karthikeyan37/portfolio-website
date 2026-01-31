@@ -3,20 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayuxh Codes | Portfolio</title>
-    <!-- Google Fonts: Poppins for a modern, clean look -->
+    <title>Your Name | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for Social Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ========================================
-        1. GLOBAL STYLES & VARIABLES
-        ========================================
-        */
         :root {
             --bg-color: #0f0f0f;
-            --accent-red: #9e1a38;
+            --accent-red: #9e1a38; /* Change this hex to change your theme color */
             --accent-glow: rgba(158, 26, 56, 0.6);
             --text-white: #ffffff;
             --text-grey: #b0b0b0;
@@ -29,19 +23,16 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-white);
             overflow-x: hidden;
-            min-height: 100vh;
         }
 
-        /* ========================================
-        2. ANIMATED SPACE BACKGROUND
-        ========================================
-        */
+        /* SPACE BACKGROUND */
         #space-canvas {
             position: fixed;
             top: 0;
@@ -52,23 +43,12 @@
             background: radial-gradient(circle at center, #1a1a1a 0%, #0f0f0f 100%);
         }
 
-        /* Create stars using CSS box-shadows for performance */
         .stars {
             width: 1px;
             height: 1px;
             background: transparent;
-            box-shadow: 10vw 10vh #fff, 25vw 40vh #fff, 60vw 20vh #fff, 80vw 80vh #fff, 30vw 90vh #fff, 15vw 65vh #fff, 88vw 15vh #fff;
+            box-shadow: 10vw 10vh #fff, 25vw 40vh #fff, 60vw 20vh #fff, 80vw 80vh #fff, 30vw 90vh #fff;
             animation: animStar 150s linear infinite;
-        }
-
-        .stars::after {
-            content: " ";
-            position: absolute;
-            top: 2000px; /* Duplicate for seamless loop */
-            width: 1px;
-            height: 1px;
-            background: transparent;
-            box-shadow: 10vw 10vh #fff, 25vw 40vh #fff, 60vw 20vh #fff, 80vw 80vh #fff, 30vw 90vh #fff, 15vw 65vh #fff, 88vw 15vh #fff;
         }
 
         @keyframes animStar {
@@ -76,10 +56,7 @@
             to { transform: translateY(-2000px); }
         }
 
-        /* ========================================
-        3. NAVIGATION (GLASSMORPHISM)
-        ========================================
-        */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
@@ -89,8 +66,7 @@
             align-items: center;
             padding: 1.5rem 10%;
             background: var(--glass-bg);
-            backdrop-filter: blur(10px); /* Frosted Glass effect */
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
         }
@@ -98,40 +74,23 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 800;
-            letter-spacing: 1px;
-            color: var(--text-white);
             text-decoration: none;
+            color: var(--text-white);
         }
 
-        .logo span {
-            color: var(--accent-red);
-        }
+        .logo span { color: var(--accent-red); }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 2.5rem;
-        }
-
+        .nav-links { display: flex; list-style: none; }
+        .nav-links li { margin-left: 2.5rem; }
         .nav-links a {
             text-decoration: none;
             color: var(--text-grey);
-            font-weight: 400;
-            transition: 0.3s;
             font-size: 0.9rem;
+            transition: 0.3s;
         }
+        .nav-links a:hover { color: var(--accent-red); }
 
-        .nav-links a:hover {
-            color: var(--accent-red);
-        }
-
-        /* ========================================
-        4. HERO SECTION
-        ========================================
-        */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex;
@@ -143,151 +102,167 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 5rem); /* Responsive font size */
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 800;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 0 30px var(--accent-glow); /* Wine Red Glow */
+            text-shadow: 0 0 30px var(--accent-glow);
         }
 
         .hero h2 {
             font-size: clamp(1.2rem, 4vw, 2rem);
-            font-weight: 300;
             color: var(--text-grey);
-            min-height: 1.5em; /* Prevent layout jump during typing */
+            font-weight: 300;
         }
 
-        #typewriter-text {
+        #typewriter-text { color: var(--accent-red); font-weight: 600; }
+
+        /* PROJECTS SECTION */
+        .section-container {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title span { color: var(--accent-red); }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: 0.4s;
+            text-align: left;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-red);
+            background: rgba(158, 26, 56, 0.05);
+        }
+
+        .project-card i {
+            font-size: 2rem;
             color: var(--accent-red);
-            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        /* ========================================
-        5. CALL TO ACTION (CTA) BUTTON
-        ========================================
-        */
-        .cta-container {
-            margin-top: 3rem;
-        }
+        .project-card h3 { margin-bottom: 1rem; }
+        .project-card p { color: var(--text-grey); font-size: 0.9rem; margin-bottom: 1.5rem; }
 
-        .btn-work {
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-white);
-            background: transparent;
-            border: 2px solid var(--accent-red);
-            border-radius: 50px;
-            cursor: pointer;
+        .project-link {
+            color: var(--accent-red);
             text-decoration: none;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* BUTTONS & SOCIALS */
+        .btn-work {
+            margin-top: 2rem;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: 0.4s;
             display: inline-block;
         }
 
         .btn-work:hover {
             background: var(--accent-red);
-            box-shadow: 0 0 25px var(--accent-red);
-            transform: translateY(-3px);
+            box-shadow: 0 0 20px var(--accent-red);
         }
 
-        /* ========================================
-        6. SOCIAL ICONS
-        ========================================
-        */
         .social-icons {
-            position: absolute;
-            bottom: 3rem;
+            margin-top: 3rem;
             display: flex;
             gap: 2rem;
         }
 
-        .social-icons a {
-            color: var(--text-grey);
-            font-size: 1.5rem;
-            transition: 0.3s;
-        }
+        .social-icons a { color: var(--text-grey); font-size: 1.5rem; transition: 0.3s; }
+        .social-icons a:hover { color: var(--accent-red); transform: scale(1.2); }
 
-        .social-icons a:hover {
-            color: var(--accent-red);
-            transform: scale(1.2);
-        }
-
-        /* ========================================
-        7. RESPONSIVENESS
-        ========================================
-        */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* Simplify for mobile in this template */
-            }
-            
-            nav {
-                justify-content: center;
-            }
-
-            .hero h1 {
-                margin-top: 2rem;
-            }
-        }
-
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-red);
-            border-radius: 10px;
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Space Background Layers -->
     <div id="space-canvas">
         <div class="stars"></div>
-        <div class="stars" style="animation-duration: 100s; opacity: 0.5;"></div>
     </div>
 
-    <!-- Navigation Bar -->
     <nav>
-        <a href="#" class="logo">AYUXH <span>CODES</span></a>
+        <a href="#" class="logo">YOUR<span>NAME</span></a>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Main Hero Section -->
     <section class="hero" id="home">
-        <h1>Hi, I'm Ayush.</h1>
+        <h1>Hi, I'm Your Name.</h1>
         <h2>A <span id="typewriter-text"></span></h2>
         
-        <div class="cta-container">
-            <a href="#work" class="btn-work">View My Work</a>
-        </div>
-
-        <!-- Social Connections -->
         <div class="social-icons">
-            <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-            <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
-            <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://github.com/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:yourname@email.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+        
+        <a href="#projects" class="btn-work">View My Work</a>
+    </section>
+
+    <section class="section-container" id="projects">
+        <h2 class="section-title">Latest <span>Projects</span></h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <i class="fa-solid fa-code"></i>
+                <h3>Project Title One</h3>
+                <p>A brief description of what this project does. Mention the tech stack like React, Python, or Node.js.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <i class="fa-solid fa-rocket"></i>
+                <h3>Project Title Two</h3>
+                <p>Developed a custom automation tool that saves 5 hours of manual work weekly. Used Python and Selenium.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>Project Title Three</h3>
+                <p>E-commerce UI design focusing on glassmorphism and user experience. Built with HTML, CSS, and JS.</p>
+                <a href="#" class="project-link">View Project →</a>
+            </div>
+
         </div>
     </section>
 
-    <!-- 
-    ========================================
-    JAVASCRIPT FOR TYPEWRITER EFFECT
-    ========================================
-    -->
+    <section class="section-container" id="contact" style="background: rgba(255,255,255,0.02)">
+        <h2 class="section-title">Get In <span>Touch</span></h2>
+        <p style="color: var(--text-grey); margin-bottom: 2rem;">I'm currently looking for new opportunities!</p>
+        <a href="mailto:yourname@email.com" class="btn-work">Say Hello</a>
+    </section>
+
     <script>
         const textElement = document.getElementById("typewriter-text");
-        const phrases = ["Web Developer", "Python Enthusiast", "Content Creator"];
+        // EDIT THESE PHRASES TO MATCH YOUR SKILLS
+        const phrases = ["Web Developer", "Python Programmer", "Tech Explorer"];
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
@@ -297,20 +272,16 @@
             const currentPhrase = phrases[phraseIndex];
             
             if (isDeleting) {
-                // Remove character
                 textElement.textContent = currentPhrase.substring(0, charIndex - 1);
                 charIndex--;
-                typeSpeed = 75; // Faster when deleting
+                typeSpeed = 75;
             } else {
-                // Add character
                 textElement.textContent = currentPhrase.substring(0, charIndex + 1);
                 charIndex++;
                 typeSpeed = 150;
             }
 
-            // Logic to switch between typing and deleting
             if (!isDeleting && charIndex === currentPhrase.length) {
-                // Pause at the end of phrase
                 isDeleting = true;
                 typeSpeed = 2000; 
             } else if (isDeleting && charIndex === 0) {
@@ -318,14 +289,10 @@
                 phraseIndex = (phraseIndex + 1) % phrases.length;
                 typeSpeed = 500;
             }
-
             setTimeout(typeEffect, typeSpeed);
         }
 
-        // Start the effect on window load
-        window.onload = () => {
-            typeEffect();
-        };
+        window.onload = () => { typeEffect(); };
     </script>
 </body>
 </html>
